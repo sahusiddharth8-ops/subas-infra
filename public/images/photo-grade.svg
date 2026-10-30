@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+  <filter id="cool-warm" color-interpolation-filters="sRGB" x="0" y="0" width="100%" height="100%">
+    <feColorMatrix type="saturate" values="0.88"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues="0.018 0.225 0.49 0.775 1"/>
+      <feFuncG type="table" tableValues="0.03 0.245 0.50 0.765 0.99"/>
+      <feFuncB type="table" tableValues="0.065 0.285 0.53 0.755 0.965"/>
+    </feComponentTransfer>
+  </filter>
+</svg>
