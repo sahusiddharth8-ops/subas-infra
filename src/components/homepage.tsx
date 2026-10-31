@@ -1,5 +1,6 @@
 "use client";
 
+import BusinessContact from "./business-contact";
 import Image from "next/image";
 import { useState, useEffect, useRef, type FormEvent } from "react";
 
@@ -80,7 +81,7 @@ export default function Homepage() {
         <figure className="life-image"><Image src="/images/interior.webp" alt="Illustrative sunlit living room with natural materials and a balcony" fill sizes="100vw" /><figcaption>Representative interior</figcaption></figure>
       </section>
 
-      <section id="about" className="about-section section-pad" aria-labelledby="about-title"><h2 id="about-title">Real spaces.<br /><span>New possibilities.</span></h2><div><p className="about-intro">We are SUBAS Infra.</p><p>A real estate company bringing our projects together in one place. Explore the spaces, get to know the locations, and find the project that feels right for you.</p><a className="text-link" href="#enquire">Let’s start a conversation <Arrow /></a></div></section>
+      <section id="about" className="about-section section-pad" aria-labelledby="about-title"><h2 id="about-title">Real spaces.<br /><span>New possibilities.</span></h2><div><p className="about-intro">We are SUBAS Infra.</p><p>SUBAS Infra is a real estate company in Odisha. Explore Subas Vatika in Berhampur, with duplexes and 2 &amp; 3 BHK apartments, and Subas Classic in Chandrasekharpur, Bhubaneswar, where construction and possession are completed.</p><a className="text-link" href="#enquire">Let’s start a conversation <Arrow /></a></div></section>
 
       <section className="founder-section section-pad" aria-labelledby="founder-title">
         <div><h2 id="founder-title">Meet our founder.</h2><p className="founder-name">Purnima Sahu</p><p className="founder-role">Founder · SUBAS Infra</p></div>
@@ -97,6 +98,6 @@ export default function Homepage() {
         {enquiryForm}
       </section>
     </main>
-    <footer className="footer section-pad"><div className="footer-top"><a className="brand-link footer-brand" href="#" aria-label="SUBAS Infra home"><Image className="brand-logo" src="/images/subas-logo.png" alt="SUBAS — Building your Dreams" width={1080} height={630} /></a><div><a href="#projects">Our projects</a><a href="#about">About SUBAS Infra</a><a href="#enquire">Enquire</a></div></div><p className="footer-note">Project exteriors are architectural illustrations. The lifestyle interior is representative. Please confirm current project details with SUBAS Infra.</p><div className="footer-bottom"><span>© {new Date().getFullYear()} SUBAS Infra. All rights reserved.</span><a href="#">Back to top <Arrow /></a></div></footer>
+    <footer className="footer section-pad"><div className="footer-top"><a className="brand-link footer-brand" href="#" aria-label="SUBAS Infra home"><Image className="brand-logo" src="/images/subas-logo.png" alt="SUBAS — Building your Dreams" width={1080} height={630} /></a><div><a href="#projects">Our projects</a><a href="#about">About SUBAS Infra</a><a href="#enquire">Enquire</a></div></div><p className="footer-note">Project exteriors are architectural illustrations. The lifestyle interior is representative. Please confirm current project details with SUBAS Infra.</p><BusinessContact /><div className="footer-bottom"><span>© {new Date().getFullYear()} SUBAS Infra. All rights reserved.</span><a href="#">Back to top <Arrow /></a></div></footer>
   </>;
 }
