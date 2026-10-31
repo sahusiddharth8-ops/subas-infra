@@ -80,3 +80,5 @@ body{scrollbar-color:#aaa1ae var(--surface)}
 
 .project.subas-classic .project-image img{object-fit:cover;padding:0;object-position:center}.project.subas-classic .project-image{aspect-ratio:1.25}
 @media(max-width:700px){.project.subas-classic .project-image{aspect-ratio:1.25}}
+
+.site-overview-image{display:block;margin-top:40px;overflow:hidden;border-radius:16px}.site-overview-image img{display:block;width:100%;height:auto;filter:var(--photo-grade)}

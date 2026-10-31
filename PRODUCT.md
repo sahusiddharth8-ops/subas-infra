@@ -68,3 +68,7 @@ Website photography and architectural illustrations share a restrained split-ton
 Brand naming: company display name is SUBAS Infra; use this exact capitalization in navigation, prose, metadata, accessible labels and copyright. Project names retain their current spelling.
 
 Founder profile editorial direction: highlight Purnima Sahu’s 28+ years of jewellery industry experience, broader sector experience, SUBAS Infra vision and family craftsmanship legacy. Omit mentions of jewellery retail brands and Subas Creations India Pvt. Ltd. from the public founder profile.
+
+User confirmed six supplied exterior renders depict the Subas Vatika 2 & 3 BHK apartment units. Gallery presents all six as architectural illustrations; no individual block names or specific 2/3 BHK attribution is inferred.
+
+SUBASH 30x48.pdf supplied for Vatika: single-page promotional poster with indicative aerial site illustration and duplex views. Poster says 30-foot internal road; retain later user-confirmed 60-foot specification in site copy, and do not present the aerial as a final approved dimensioned plan.
