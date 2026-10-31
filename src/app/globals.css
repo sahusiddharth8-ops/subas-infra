@@ -75,3 +75,8 @@ body{scrollbar-color:#aaa1ae var(--surface)}
 .hero-image{height:auto;aspect-ratio:1.85;min-height:0;max-height:none}
 .hero-image img{object-position:50% 48%}
 @media(max-width:650px){.hero-image{aspect-ratio:1.05;height:auto;min-height:0;max-height:none}.hero-image img{object-position:76% 48%}}
+
+.project.subas-classic .project-image{background:#e8eaf0}.project.subas-classic .project-image img{object-fit:contain;object-position:center; padding:12px}.project.subas-classic:hover .project-image img{transform:none}
+
+.project.subas-classic .project-image img{object-fit:cover;padding:0;object-position:center}.project.subas-classic .project-image{aspect-ratio:1.25}
+@media(max-width:700px){.project.subas-classic .project-image{aspect-ratio:1.25}}

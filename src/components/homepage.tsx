@@ -66,7 +66,7 @@ export default function Homepage() {
       <section id="projects" className="projects-section section-pad" aria-labelledby="projects-title">
         <div className="section-heading"><h2 id="projects-title">Find your place.</h2><p>A space for every new beginning.</p></div>
         <div className="project-toolbar"><div className="filters" aria-label="Filter projects">{["All projects", "Duplexes", "Apartments"].map(item => <button key={item} className={filter === item ? "active" : ""} aria-pressed={filter === item} onClick={() => { setFilter(item); }}>{item}</button>)}</div><span className="project-count" aria-live="polite">{visibleProjects.length} {visibleProjects.length === 1 ? "project" : "projects"}</span></div>
-        <div className="project-grid">{visibleProjects.map(project => <article className="project" key={project.name}>
+        <div className="project-grid">{visibleProjects.map(project => <article className={`project ${project.slug}`} key={project.name}>
           <figure className="project-image"><Image src={project.image} alt={`${project.name} architectural illustration`} fill sizes="(max-width: 650px) 90vw, (max-width: 1000px) 45vw, 30vw" /><figcaption>{project.status}</figcaption></figure>
           <div className="project-info"><p className="project-location">{project.location}{project.sample ? ` · ${project.type}` : ""}</p><h3>{project.name}</h3><p className="project-description">{project.description}</p>
             <Link className="text-link" href={`/projects/${project.slug}`}>Explore project <Arrow /></Link>

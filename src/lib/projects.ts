@@ -1,6 +1,6 @@
 export const projects = [
   { slug: "subas-vatika", name: "Subas Vatika", location: "Berhampur", type: "Duplexes", image: "/projects/vatika/duplex-enhanced.png", description: "Duplexes, 2 & 3 BHK apartments, hospitality and everyday conveniences in one community.", status: "Duplexes & apartments", sample: false },
-  { slug: "subas-classic", name: "Subas Classic", location: "Chandrasekharpur, Bhubaneswar", type: "Apartments", image: "/projects/classic/exterior-enhanced.png", description: "Two-bedroom apartments. Completed, with possession completed.", status: "Possession completed", sample: false },
+  { slug: "subas-classic", name: "Subas Classic", location: "Chandrasekharpur, Bhubaneswar", type: "Apartments", image: "/projects/classic/exterior-wide.png", description: "Two-bedroom apartments. Completed, with possession completed.", status: "Possession completed", sample: false },
 ];
 
 export type ProjectDetail = {
