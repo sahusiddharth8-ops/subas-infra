@@ -87,6 +87,11 @@ export default function Homepage() {
         <div className="founder-biography"><p>Purnima Sahu brings over 28 years of experience in the jewellery industry and a broad business perspective shaped by her work across hospitality, restaurants, handloom, handicrafts and real estate.</p><p>As the founder of SUBAS Infra, she brings this experience to a vision of thoughtfully developed places that enrich everyday life—bringing homes, hospitality and essential conveniences together.</p><p>The daughter of Padma Vibhushan awardee Shri Sudarshan Sahoo, she carries forward a family legacy of craftsmanship while building her own path in business and real estate.</p></div>
       </section>
 
+      <section className="founder-section section-pad" aria-labelledby="architect-title">
+        <div><h2 id="architect-title">Meet our principal architect.</h2><p className="founder-name">Sonam Sahu</p><p className="founder-role">Principal Architect · SUBAS Infra</p></div>
+        <div className="founder-biography"><p>Sonam Sahu is the Principal Architect at SUBAS Infra, with specializations in urban architecture and interior design.</p><p>An alumna of CEPT University, Ahmedabad, she brings an international perspective shaped by exposure to architecture and design across Europe, particularly Germany.</p><p>Her work connects the wider urban setting with the details of interior spaces, bringing a considered approach to how places are designed and experienced.</p></div>
+      </section>
+
       <section id="enquire" className="enquiry-section section-pad" aria-labelledby="enquiry-title">
         <div className="enquiry-copy"><h2 id="enquiry-title">Your next chapter.<br /><span>Let’s talk.</span></h2><p>Interested in a project? Tell us a little about what you’re looking for.</p><p className="preview-note">Complete your details to access our project brochures. Enquiries are not sent yet.</p></div>
         {enquiryForm}
