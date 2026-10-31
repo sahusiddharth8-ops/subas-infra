@@ -6,6 +6,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
+  verification: { google: "9JB2kSBP-weVXasY4b2d5JKLReztAc92T223bgnVLjE" },
   title: { default: "Subas Infra | Homes in Berhampur & Bhubaneswar", template: "%s | Subas Infra" },
   description: brandDescription,
   robots: { index: true, follow: true },
