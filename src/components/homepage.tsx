@@ -21,23 +21,39 @@ export default function Homepage() {
   const [filter, setFilter] = useState("All projects");
   const [selectedProject, setSelectedProject] = useState("");
   const [preview, setPreview] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState("");
   const visibleProjects = projects.filter(p => filter === "All projects" || p.type === filter || (p.slug === "subas-vatika" && filter === "Apartments"));
 
-  function submit(event: FormEvent<HTMLFormElement>) { event.preventDefault(); setPreview(true); }
+  async function submit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (sending) return;
+    const fields = Object.fromEntries(new FormData(event.currentTarget));
+    setSending(true); setSendError(""); setPreview(false);
+    try {
+      const response = await fetch("/api/enquiries", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(fields) });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error || "Please retry your enquiry.");
+      setPreview(true);
+    } catch (error) { setSendError(error instanceof Error ? error.message : "Unable to send. Please try again."); }
+    finally { setSending(false); }
+  }
 
   const enquiryForm = (<form onSubmit={submit} onChange={() => setPreview(false)}>
           <div className="enquiry-fields"><label>Your name<input name="name" autoComplete="name" required placeholder="Full name" maxLength={100} /></label><label>Phone number<input name="phone" type="tel" autoComplete="tel" inputMode="tel" required placeholder="e.g. +91 98765 43210" pattern="[+]?[0-9][0-9 ]{6,23}" title="Enter your phone number using digits and spaces, with an optional + country code." minLength={7} maxLength={25} /></label><label>Email address <span className="optional">(optional)</span><input name="email" type="email" autoComplete="email" placeholder="you@example.com" maxLength={254} /></label></div>
           <label>Project<select name="project" required value={selectedProject} onChange={event => setSelectedProject(event.target.value)}><option value="" disabled>Select a project</option>{projects.map(project => <option key={project.name}>{project.name}</option>)}<option>Help me choose</option></select></label>
           <label>Your message <span className="optional">(optional)</span><textarea name="message" rows={3} placeholder="What would you like to know?" maxLength={2000} /></label>
-          <button className="button" type="submit">Access brochures <Arrow /></button>
-          {preview && <div className="brochure-access"><p role="status">Your brochures are ready. Choose a PDF to download.</p><div className="brochure-downloads">{projects.filter(project => selectedProject === "Help me choose" || project.name === selectedProject).map(project => <a className="text-link" key={project.slug} href={projectDetails[project.slug].brochure} download>Download {project.name} brochure <Arrow /></a>)}</div></div>}
-          <p className="form-note">Your details stay on this page and are not stored.</p>
+          <div hidden aria-hidden="true"><label>Leave this empty<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
+          <button className="button" type="submit" disabled={sending}>{sending ? "Sending…" : "Send enquiry & get brochures"} <Arrow /></button>
+          {sendError && <p role="alert">{sendError}</p>}
+          {preview && <div className="brochure-access"><p role="status">Thank you. Your enquiry has been sent to our team. Your brochures are ready below.</p><div className="brochure-downloads">{projects.filter(project => selectedProject === "Help me choose" || project.name === selectedProject).map(project => <a className="text-link" key={project.slug} href={projectDetails[project.slug].brochure} download>Download {project.name} brochure <Arrow /></a>)}</div></div>}
+          <p className="form-note">By submitting, you agree that SUBAS Infra may contact you about your enquiry. Your details are sent securely to our team by email.</p>
         </form>);
 
   return <>
     <dialog ref={enquiryDialog} className="enquiry-dialog" aria-labelledby="popup-enquiry-title" onCancel={dismissEnquiry} onClick={event => { if(event.target === event.currentTarget) dismissEnquiry(); }}>
       <div className="enquiry-dialog-content"><button type="button" className="dialog-close" onClick={dismissEnquiry} aria-label="Close enquiry"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6" stroke="currentColor" strokeWidth="1.5"/></svg></button>
-      <h2 id="popup-enquiry-title">Let’s find your next home.</h2><p className="dialog-intro">Explore our projects and download a brochure. Share your details below.</p><p className="preview-note">Preview: contact delivery is being connected. Your details are not sent or stored yet.</p>{enquiryForm}</div>
+      <h2 id="popup-enquiry-title">Let’s find your next home.</h2><p className="dialog-intro">Explore our projects and download a brochure. Share your details below.</p><p className="preview-note">Our team will contact you about your selected project.</p>{enquiryForm}</div>
     </dialog>
     <a className="skip-link" href="#main">Skip to content</a>
     <header className="site-header">
@@ -94,7 +110,7 @@ export default function Homepage() {
       </section>
 
       <section id="enquire" className="enquiry-section section-pad" aria-labelledby="enquiry-title">
-        <div className="enquiry-copy"><h2 id="enquiry-title">Your next chapter.<br /><span>Let’s talk.</span></h2><p>Interested in a project? Tell us a little about what you’re looking for.</p><p className="preview-note">Complete your details to access our project brochures. Enquiries are not sent yet.</p></div>
+        <div className="enquiry-copy"><h2 id="enquiry-title">Your next chapter.<br /><span>Let’s talk.</span></h2><p>Interested in a project? Tell us a little about what you’re looking for.</p><p className="preview-note">Share your details and our team will get in touch. You can also download your project brochure after submitting.</p></div>
         {enquiryForm}
       </section>
     </main>
