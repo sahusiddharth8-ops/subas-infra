@@ -1,6 +1,6 @@
 "use client";
 
-import BusinessContact from "./business-contact";
+import BusinessContact, { SocialContactLinks } from "./business-contact";
 import Image from "next/image";
 import { useState, useEffect, useRef, type FormEvent } from "react";
 
@@ -110,7 +110,7 @@ export default function Homepage() {
       </section>
 
       <section id="enquire" className="enquiry-section section-pad" aria-labelledby="enquiry-title">
-        <div className="enquiry-copy"><h2 id="enquiry-title">Your next chapter.<br /><span>Let’s talk.</span></h2><p>Interested in a project? Tell us a little about what you’re looking for.</p><p className="preview-note">Share your details and our team will get in touch. You can also download your project brochure after submitting.</p></div>
+        <div className="enquiry-copy"><h2 id="enquiry-title">Your next chapter.<br /><span>Let’s talk.</span></h2><p>Interested in a project? Tell us a little about what you’re looking for.</p><p className="preview-note">Share your details and our team will get in touch. You can also download your project brochure after submitting.</p><SocialContactLinks /></div>
         {enquiryForm}
       </section>
     </main>
